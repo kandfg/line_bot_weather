@@ -1,0 +1,11 @@
+[build]
+  functions="line_weather"
+
+[[edge_functions]]
+function = "line-weather"
+path = "/test"
+
+[[redirects]]
+  from = "/callback"
+  to = "/.netlify/functions/line-weather"
+  status = 200

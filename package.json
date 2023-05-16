@@ -1,0 +1,11 @@
+{
+    "name": "line-bot",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "@line/bot-sdk": "^7.3.0"
+    }
+  }
