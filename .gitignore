@@ -1,3 +1,5 @@
 # Local Netlify folder
 .netlify
-/line_weather
+/netlify
+/node_modules
+/line_weather/line-weather/node_modules
