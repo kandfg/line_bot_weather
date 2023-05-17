@@ -51,7 +51,12 @@ const handler = async (event: any) => {
           4: '稍差',
           5: '最差'
         };
-        const messageResponse  =
+        const messageResponse  ={
+        "type": "flex",
+        "altText": "carousel flex",
+        "contents": {
+            "type": "carousel",
+            "contents": [
           { 
             "type": "bubble",
             "hero": {
@@ -302,8 +307,9 @@ const handler = async (event: any) => {
                 }
               ]
             }
-          };
-        await client.replyMessage(replyToken, messageResponse );
+          }
+        ]}};
+        await client.replyMessage(replyToken,messageResponse);
         console.log('Reply message sent successfully.');
       })
       .catch((error) => {
