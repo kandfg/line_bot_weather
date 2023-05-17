@@ -52,7 +52,9 @@ const handler = async (event: any) => {
           5: '最差'
         };
         const messageResponse  =({
-            altText: '天氣狀況',
+          "type": "flex", 
+          "altText": '天氣狀況',
+          "content":{ 
             "type": "bubble",
             "hero": {
               "type": "image",
@@ -302,6 +304,7 @@ const handler = async (event: any) => {
                 }
               ]
             }
+          }
         });
         await client.replyMessage(replyToken, messageResponse );
         console.log('Reply message sent successfully.');
