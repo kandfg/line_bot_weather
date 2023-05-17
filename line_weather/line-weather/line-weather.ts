@@ -39,9 +39,7 @@ const handler = async (event: any) => {
         
         const messageResponse  = {
           type: 'text',
-          text: `城市名稱:${data.name}\n
-                 溫度:${data.main.temp}\n
-                 體感溫度:${data.main.feels_like}\n
+          text: `城市名稱:${data.name}\n溫度:${data.main.temp}\n體感溫度:${data.main.feels_like}\n
                  最低溫:${data.main.temp_min}\n
                  最高溫:${data.main.temp_max}\n
                  濕度:${data.main.humidity}\n
