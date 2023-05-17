@@ -39,13 +39,7 @@ const handler = async (event: any) => {
         
         const messageResponse  = {
           type: 'text',
-          text: `城市名稱:${data.name}\n溫度:${data.main.temp}\n體感溫度:${data.main.feels_like}\n
-                 最低溫:${data.main.temp_min}\n
-                 最高溫:${data.main.temp_max}\n
-                 濕度:${data.main.humidity}\n
-                 風速:${data.wind.speed}\n
-                 陣風:${data.wind.gust}\n
-                 天氣狀況: ${data.weather[0].description}\n`,
+          text: `城市名稱:${data.name}\n溫度:${data.main.temp}\n體感溫度:${data.main.feels_like}\n最低溫:${data.main.temp_min}\n最高溫:${data.main.temp_max}\n濕度:${data.main.humidity}\n風速:${data.wind.speed}\n陣風:${data.wind.gust}\n天氣狀況: ${data.weather[0].description}\n`,
         };
         console.log('Sending reply message:', messageResponse);
         await client.replyMessage(replyToken, messageResponse);
