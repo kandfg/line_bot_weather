@@ -1,4 +1,4 @@
-import { Client, validateSignature, exceptions,,ImageComponent,TextComponent } from '@line/bot-sdk';
+import { Client, validateSignature, exceptions,ImageComponent,TextComponent } from '@line/bot-sdk';
 import fetch from "node-fetch";
 const handler = async (event: any) => {
   // 取得環境變數
