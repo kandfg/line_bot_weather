@@ -29,7 +29,7 @@ const handler = async (event: any) => {
         console.log('Received geolocation data:', data);
         const lat = data[0].lat.toFixed(6);
         const lon = data[0].lon.toFixed(6);
-        console.log(${lat});
+        console.log(`${lat}`);
         return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
       })
       .then((response) => response.json())
