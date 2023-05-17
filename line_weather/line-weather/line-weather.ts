@@ -23,7 +23,7 @@ const handler = async (event: any) => {
     const { text } = event.message;
     
     console.log('Fetching weather data...');
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&appid=${WEAKey}`)
+    await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&appid=${WEAKey}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('Received geolocation data:', data);
