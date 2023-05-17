@@ -54,7 +54,8 @@ const handler = async (event: any) => {
         const messageResponse  =({
           "type": "flex", 
           "altText": '天氣狀況',
-          "content":{ 
+          "content":[
+          { 
             "type": "bubble",
             "hero": {
               "type": "image",
@@ -304,7 +305,7 @@ const handler = async (event: any) => {
                 }
               ]
             }
-          }
+          }]
         });
         await client.replyMessage(replyToken, messageResponse );
         console.log('Reply message sent successfully.');
