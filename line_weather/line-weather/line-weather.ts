@@ -29,6 +29,7 @@ const handler = async (event: any) => {
         console.log('Received geolocation data:', data);
         const lat = data[0].lat;
         const lon = data[0].lon;
+        console.log('first');
         return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
       })
       .then((response) => response.json())
@@ -45,7 +46,8 @@ const handler = async (event: any) => {
                  最高溫:${data.main.temp_max}\n
                  濕度:${data.main.humidity}\n
                  風速:${data.wind.speed}\n
-                 陣風:${data.wind.gust}\n`,
+                 陣風:${data.wind.gust}\n
+                 天氣狀況: ${data.weather[0].description}\n`,
         };
         console.log('Sending reply message:', messageResponse);
         await client.replyMessage(replyToken, messageResponse);
