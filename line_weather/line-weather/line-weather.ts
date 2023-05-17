@@ -41,9 +41,17 @@ const handler = async (event: any) => {
         console.log('Received weather data:', weatherData);
         console.log('Received air pollution data:', airpollutionData);
         // Create a new message
+        const aqi = airpollutionData.list[0].main.aqi;
+        const aqiMapping = {
+          1: '很好',
+          2: '尚可',
+          3: '普通',
+          4: '稍差',
+          5: '最差'
+        };
         const messageResponse  = {
           type: 'text',
-          text: `城市名稱:${weatherData.name}\n溫度:${weatherData.main.temp}\n體感溫度:${weatherData.main.feels_like}\n最低溫:${weatherData.main.temp_min}\n最高溫:${weatherData.main.temp_max}\n濕度:${weatherData.main.humidity}\n風速:${weatherData.wind.speed}\n陣風:${weatherData.wind.gust}\n天氣狀況: ${weatherData.weather[0].description}`,
+          text: `城市名稱:${weatherData.name}\n溫度:${weatherData.main.temp}\n體感溫度:${weatherData.main.feels_like}\n最低溫:${weatherData.main.temp_min}\n最高溫:${weatherData.main.temp_max}\n濕度:${weatherData.main.humidity}\n風速:${weatherData.wind.speed}\n陣風:${weatherData.wind.gust}\n天氣狀況: ${weatherData.weather[0].description}\n空氣品質:${aqiMapping[aqi]}`,
         };
         console.log('Sending reply message:', messageResponse);
         await client.replyMessage(replyToken, messageResponse);
