@@ -1,4 +1,4 @@
-import { Client, validateSignature, exceptions } from '@line/bot-sdk';
+import { Client, validateSignature, exceptions,,ImageComponent,TextComponent } from '@line/bot-sdk';
 import fetch from "node-fetch";
 const handler = async (event: any) => {
   // 取得環境變數
@@ -23,12 +23,14 @@ const handler = async (event: any) => {
     const { text } = event.message;
     
     console.log('Fetching weather data...');
+    //取得輸入位置的座標
     await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&appid=${WEAKey}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('Received geolocation data:', data);
         const lat = data[0].lat;
         const lon = data[0].lon;
+        //取得空汙和天氣資訊
         return Promise.all([
           fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`),
           fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${WEAKey}`)
@@ -49,12 +51,28 @@ const handler = async (event: any) => {
           4: '稍差',
           5: '最差'
         };
-        const messageResponse  = {
-          type: 'text',
+        const textComponent = new TextComponent({
           text: `城市名稱:${weatherData.name}\n溫度:${weatherData.main.temp}\n體感溫度:${weatherData.main.feels_like}\n最低溫:${weatherData.main.temp_min}\n最高溫:${weatherData.main.temp_max}\n濕度:${weatherData.main.humidity}\n風速:${weatherData.wind.speed}\n陣風:${weatherData.wind.gust}\n天氣狀況: ${weatherData.weather[0].description}\n空氣品質:${aqiMapping[aqi]}`,
-        };
-        console.log('Sending reply message:', messageResponse);
-        await client.replyMessage(replyToken, messageResponse);
+          size: 'md',
+          weight: 'bold',
+          wrap: true,
+        });
+        const imageComponent = new ImageComponent({
+          url: `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`,
+          size: 'xl',
+        });
+        const flexMessage =({
+          altText: '天氣狀況',
+          contents: {
+            type: 'bubble',
+            body: {
+              type: 'box',
+              layout: 'vertical',
+              contents: [textComponent, imageComponent],
+            },
+          },
+        });
+        await client.replyMessage(replyToken, flexMessage);
         console.log('Reply message sent successfully.');
       })
       .catch((error) => {
