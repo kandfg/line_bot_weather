@@ -1,5 +1,5 @@
 [build]
-  functions="line_weather"
+  functions = "line_weather"
 
 [[edge_functions]]
 function = "line-weather"
