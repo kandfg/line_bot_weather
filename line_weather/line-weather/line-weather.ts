@@ -27,14 +27,15 @@ const handler = async (event: any) => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Received geolocation data:', data);
-        const lat = data.lat;
-        const lon = data.lon;
+        const lat = data[0].lat;
+        const lon = data[0].lon;
         return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
       })
       .then((response) => response.json())
       .then(async (data) => {
         console.log('Received weather data:', data);
         // Create a new message
+        
         const messageResponse  = {
           type: 'text',
           text: `城市名稱:${data.name}\n
