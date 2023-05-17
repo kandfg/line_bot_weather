@@ -62,7 +62,7 @@ const handler = async (event: any) => {
               "url": `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`,
               "size": "full",
               "aspectRatio": "20:13",
-              "aspectMode": "cover",
+              "aspectMode": "cover"
             },
             "body": {
               "type": "box",
@@ -299,7 +299,7 @@ const handler = async (event: any) => {
                           "flex": 5
                         }
                       ]
-                    },
+                    }
                     
                   ]
                 }
