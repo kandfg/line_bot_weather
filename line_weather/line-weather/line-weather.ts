@@ -21,48 +21,38 @@ const handler = async (event: any) => {
     }
     const { replyToken } = event;
     const { text } = event.message;
+    
+    console.log('Fetching weather data...');
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${WEAKey}`)
-    .then((response) => response.json())
-    .then((data) => {
-      // 在这里处理获取到的数据
-      console.log(data);
-      const lat = data[0].lat;
-      const lon = data[0].lon;
-      return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
-      // 在这里进行后续的处理
-      // ...
-    })
-    .then((response) => response.json())
-    .then(async (data) => {
-    // 处理第二个fetch请求返回的数据
-      console.log(data);
-
-      const city= data.name;
-      const speed=data.wind.speed;
-      const gust=data.wind.gust;
-      const humidity=data.main.humidity;
-      const temp_max=data.main.temp_max;
-      const temp_min=data.main.temp_min;
-      const feels_like=data.main.feels_like;
-      const temp=data.main.temp;
-      // Create a new message
-      const messageResponse  = {
-        type: 'text',
-        text: `城市名稱:${city}\n
-               溫度:${temp}\n
-               體感溫度:${feels_like}\n
-               最低溫:${temp_min}\n
-               最高溫:${temp_max}\n
-               濕度:${humidity}\n
-               風速:${speed}\n
-               陣風:${gust}\n`,
-      };
-      await client.replyMessage(replyToken, messageResponse );
-    })
-    .catch((error) => {
-      // 处理请求过程中的错误
-      console.log(error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Received geolocation data:', data);
+        const lat = data[0].lat;
+        const lon = data[0].lon;
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
+      })
+      .then((response) => response.json())
+      .then(async (data) => {
+        console.log('Received weather data:', data);
+        // Create a new message
+        const messageResponse  = {
+          type: 'text',
+          text: `城市名稱:${data.name}\n
+                 溫度:${data.main.temp}\n
+                 體感溫度:${data.main.feels_like}\n
+                 最低溫:${data.main.temp_min}\n
+                 最高溫:${data.main.temp_max}\n
+                 濕度:${data.main.humidity}\n
+                 風速:${data.wind.speed}\n
+                 陣風:${data.wind.gust}\n`,
+        };
+        console.log('Sending reply message:', messageResponse);
+        await client.replyMessage(replyToken, messageResponse);
+        console.log('Reply message sent successfully.');
+      })
+      .catch((error) => {
+        console.log('An error occurred:', error);
+      });
   };
 
   try {
