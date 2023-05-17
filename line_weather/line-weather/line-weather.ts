@@ -33,7 +33,7 @@ const handler = async (event: any) => {
       // ...
     })
     .then((response) => response.json())
-    .then((data) => {
+    .then(async (data) => {
     // 处理第二个fetch请求返回的数据
       console.log(data);
 
