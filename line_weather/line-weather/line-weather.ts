@@ -23,12 +23,12 @@ const handler = async (event: any) => {
     const { text } = event.message;
     
     console.log('Fetching weather data...');
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&limit=5&appid=${WEAKey}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&appid=${WEAKey}`)
       .then((response) => response.json())
       .then((data) => {
         console.log('Received geolocation data:', data);
-        const lat = data[0].lat;
-        const lon = data[0].lon;
+        const lat = data.lat;
+        const lon = data.lon;
         return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`);
       })
       .then((response) => response.json())
