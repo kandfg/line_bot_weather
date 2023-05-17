@@ -90,16 +90,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "城市名稱:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.name}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -112,16 +112,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "溫度:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.main.temp}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -134,16 +134,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "體感溫度:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.main.feels_like}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -156,16 +156,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "最低溫:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.main.temp_min}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -178,16 +178,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "最高溫:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.main.temp_max}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -200,16 +200,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "濕度:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.main.humidity}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -222,16 +222,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "風速:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.wind.speed}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -244,16 +244,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "陣風:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.wind.gust}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -266,16 +266,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "天氣狀況:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${weatherData.weather[0].description}\n`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
@@ -288,16 +288,16 @@ const handler = async (event: any) => {
                         {
                           "type": "text",
                           "text": "空氣品質:",
-                          "color": "000000",
-                          "size": "md",
-                          "flex": 2
+                          "color": "#aaaaaa",
+                          "size": "sm",
+                          "flex": 1
                         },
                         {
                           "type": "text",
                           "text": `${aqiMapping[aqi]}`,
                           "wrap": true,
                           "color": "#666666",
-                          "size": "md",
+                          "size": "sm",
                           "flex": 5
                         }
                       ]
