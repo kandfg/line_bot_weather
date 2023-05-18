@@ -89,7 +89,7 @@ const handler = async (event: any) => {
                       "contents": [
                         {
                           "type": "text",
-                          "text": "城市名稱:",
+                          "text": "縣市名稱:",
                           "color": "#000000",
                           "size": "md",
                           "flex": 2
@@ -118,7 +118,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.main.temp}\n`,
+                          "text": `${weatherData.main.temp}度\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -140,7 +140,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.main.feels_like}\n`,
+                          "text": `${weatherData.main.feels_like}度\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -162,7 +162,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.main.temp_min}\n`,
+                          "text": `${weatherData.main.temp_min}度\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -184,7 +184,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.main.temp_max}\n`,
+                          "text": `${weatherData.main.temp_max}度\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -206,7 +206,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.main.humidity}\n`,
+                          "text": `${weatherData.main.humidity}%\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -228,7 +228,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.wind.speed}\n`,
+                          "text": `${weatherData.wind.speed}m/s\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
@@ -250,7 +250,7 @@ const handler = async (event: any) => {
                         },
                         {
                           "type": "text",
-                          "text": `${weatherData.wind.gust}\n`,
+                          "text": `${weatherData.wind.gust}m/s\n`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "md",
