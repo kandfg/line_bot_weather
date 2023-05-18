@@ -32,7 +32,7 @@ const handler = async (event: any) => {
         const lon = data[0].lon;
         //取得空汙和天氣資訊
         return Promise.all([
-          fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric`),
+          fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEAKey}&units=Metric&lang=zh_tw`),
           fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${WEAKey}`)
         ]);
       })
