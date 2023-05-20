@@ -27,7 +27,10 @@ const handler = async (event: any) => {
     await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${text}&appid=${WEAKey}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log('Received geolocation data:', data);
+        //避免沒找到地方出現錯誤
+        if (data.length === 0) {
+          throw new Error('Empty data');
+        }
         const lat = data[0].lat;
         const lon = data[0].lon;
         //取得空汙和天氣資訊
@@ -314,6 +317,11 @@ const handler = async (event: any) => {
       })
       .catch((error) => {
         console.log('An error occurred:', error);
+        const errorMessage = {
+          type: 'text',
+          text: '找不到這地方(中文的話請記得加入縣市鄉鎮)'
+        };
+        await client.replyMessage(replyToken, errorMessage);
       });
   };
 
