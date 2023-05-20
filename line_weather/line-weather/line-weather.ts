@@ -315,7 +315,7 @@ const handler = async (event: any) => {
         await client.replyMessage(replyToken,messageResponse);
         console.log('Reply message sent successfully.');
       })
-      .catch((error) => {
+      .catch(async (error) => {
         console.log('An error occurred:', error);
         const errorMessage = {
           type: 'text',
